@@ -41,26 +41,23 @@
         <p th:text="${eleve.age}">Sexe</p>
     </div>
 </div>
+<h2>Classe de l'élève</h2>
+
 <div class="w3-cell-row">
-    <div class="w3-container w3-cell" style="width:20%">
-        <p>Classe de l'élève</p>
-    </div>
-    <div class="w3-cell-row">
-        <table class="w3-table-all w3-hoverable">
-            <tr>
-                <th>Id</th>
-                <th>Ecole</th>
-                <th>Niveau</th>
-                <th>Nom du professeur</th>
-            </tr>
-            <tr>
-                <td><span th:text="${eleve.classe.id}"></span></td>
-                <td><span th:text="${eleve.classe.ecole}"></span></td>
-                <td><span th:text="${eleve.classe.niveau}"></span></td>
-                <td><span th:text="${eleve.classe.nomProfesseur}"></span></td>
-            </tr>
-        </table>
-    </div>
+    <table class="w3-table-all w3-hoverable">
+        <tr>
+            <th>Id</th>
+            <th>Ecole</th>
+            <th>Niveau</th>
+            <th>Nom du professeur</th>
+        </tr>
+        <tr>
+            <td><a th:href="@{/eleves/}+${eleve.classe.id}"><span th:text="${eleve.classe.id}"></span></a></td>
+            <td><span th:text="${eleve.classe.ecole}"></span></td>
+            <td><span th:text="${eleve.classe.niveau}"></span></td>
+            <td><span th:text="${eleve.classe.nomProfesseur}"></span></td>
+        </tr>
+    </table>
 </div>
 
 </body>

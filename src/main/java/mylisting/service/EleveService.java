@@ -30,4 +30,7 @@ public class EleveService {
         return elevesList;
     }
 
+    public Eleve findOneEleve(Long id) {
+        return eleveRepository.findOne(id);
+    }
 }
