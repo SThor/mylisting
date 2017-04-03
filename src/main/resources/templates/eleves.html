@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../static/w3.css"
+          th:href="@{/w3.css}" rel="stylesheet" media="screen"/>
+    <title>Liste des élèves</title>
+</head>
+<body>
+<h1>Classe</h1>
+<div class="w3-cell-row">
+    <div class="w3-container w3-cell" style="width:20%">
+        <p>Niveau :</p>
+    </div>
+    <div class="w3-container w3-cell">
+        <p th:text="${classe.niveau}">Sexe</p>
+    </div>
+</div>
+<div class="w3-cell-row">
+    <div class="w3-container w3-cell" style="width:20%">
+        <p>École :</p>
+    </div>
+    <div class="w3-container w3-cell">
+        <p th:text="${classe.ecole}">Sexe</p>
+    </div>
+</div>
+<h1>Liste des élèves</h1>
+<table class="w3-table-all w3-hoverable">
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Age</th>
+    </tr>
+    <tr th:each="eleve : ${eleves}">
+        <td><span th:text="${eleve.id}"></span></td>
+        <td><span th:text="${eleve.nom}"></span></td>
+        <td><span th:text="${eleve.prenom}"></span></td>
+        <td><span th:text="${eleve.age}"></span></td>
+    </tr>
+</table>
+
+</body>
+</html>

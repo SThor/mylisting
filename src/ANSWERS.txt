@@ -1,0 +1,21 @@
+NOM : GIVEL
+Prénom : Paul
+Groupe de TP : IHM
+--------------------
+
+# Log de la console montrant le problème du N+1 Select :
+
+2017-04-03 10:38:10.875 DEBUG 5096 --- [nio-8080-exec-1] org.hibernate.SQL                        : select classe0_.id as id1_0_, classe0_.ecole_id as ecole_id4_0_, classe0_.niveau as niveau2_0_, classe0_.nom_professeur as nom_prof3_0_ from classe classe0_
+2017-04-03 10:38:10.897 DEBUG 5096 --- [nio-8080-exec-1] org.hibernate.SQL                        : select ecole0_.id as id1_1_0_, ecole0_.capacitedaccueil_max as capacite2_1_0_, ecole0_.nom as nom3_1_0_, ecole0_.ville as ville4_1_0_ from ecole ecole0_ where ecole0_.id=?
+2017-04-03 10:38:10.908 DEBUG 5096 --- [nio-8080-exec-1] org.hibernate.SQL                        : select ecole0_.id as id1_1_0_, ecole0_.capacitedaccueil_max as capacite2_1_0_, ecole0_.nom as nom3_1_0_, ecole0_.ville as ville4_1_0_ from ecole ecole0_ where ecole0_.id=?
+
+# Explication du problème du N+1 Select :
+Le select sur l'école est effectué deux fois. En effet, le Join n'a pas été effectué dans la requête.
+
+# Log de la console après correction du problème du N+1 Select :
+
+2017-04-03 10:42:05.029 DEBUG 5944 --- [nio-8080-exec-1] org.hibernate.SQL                        : select classe0_.id as id1_0_0_, ecole1_.id as id1_1_1_, classe0_.ecole_id as ecole_id4_0_0_, classe0_.niveau as niveau2_0_0_, classe0_.nom_professeur as nom_prof3_0_0_, ecole1_.capacitedaccueil_max as capacite2_1_1_, ecole1_.nom as nom3_1_1_, ecole1_.ville as ville4_1_1_ from classe classe0_ inner join ecole ecole1_ on classe0_.ecole_id=ecole1_.id
+
+
+
+

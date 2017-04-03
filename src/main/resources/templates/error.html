@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../static/w3.css"
+          th:href="@{/w3.css}" rel="stylesheet" media="screen"/>
+    <title>Erreur</title>
+</head>
+<body>
+
+<div class="row">
+    <h1 class="w3-text-red w3-center" th:text="${error}">Not found</h1>
+
+    <p class="w3-large w3-center" th:text="${message}">
+        This page is not available
+    </p>
+
+    <p class="w3-large w3-center" th:text="${customMessage}">
+        There is a problem
+    </p>
+</div>
+
+</body>
+</html>

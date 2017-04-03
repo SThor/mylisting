@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../static/w3.css"
+          th:href="@{/w3.css}" rel="stylesheet" media="screen"/>
+    <title>Liste des classes</title>
+</head>
+<body>
+<h1>Liste des classes</h1>
+
+<table class="w3-table-all w3-hoverable">
+    <tr>
+        <th>Id</th>
+        <th>Ecole</th>
+        <th>Niveau</th>
+        <th>Nom du professeur</th>
+    </tr>
+    <tr th:each="classe : ${classes}">
+        <td><a th:href="@{/eleves/}+${classe.id}"><span th:text="${classe.id}"></span></a></td>
+        <td><span th:text="${classe.ecole}"></span></td>
+        <td><span th:text="${classe.niveau}"></span></td>
+        <td><span th:text="${classe.nomProfesseur}"></span></td>
+    </tr>
+</table>
+
+</body>
+</html>

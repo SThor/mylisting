@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../static/w3.css"
+          th:href="@{/w3.css}" rel="stylesheet" media="screen"/>
+    <title>Affichage d'un élève</title>
+</head>
+<body>
+<h1>Affichage d'un élève</h1>
+
+<div class="w3-cell-row">
+    <div class="w3-container w3-cell" style="width:20%">
+        <p>Id :</p>
+    </div>
+    <div class="w3-container w3-cell">
+        <p th:text="${eleve.id}">Id</p>
+    </div>
+</div>
+<div class="w3-cell-row">
+    <div class="w3-container w3-cell" style="width:20%">
+        <p>Nom :</p>
+    </div>
+    <div class="w3-container w3-cell">
+        <p th:text="${eleve.nom}">Nom</p>
+    </div>
+</div>
+<div class="w3-cell-row">
+    <div class="w3-container w3-cell" style="width:20%">
+        <p>Prénom :</p>
+    </div>
+    <div class="w3-container w3-cell">
+        <p th:text="${eleve.prenom}">Prénom</p>
+    </div>
+</div>
+<div class="w3-cell-row">
+    <div class="w3-container w3-cell" style="width:20%">
+        <p>Age :</p>
+    </div>
+    <div class="w3-container w3-cell">
+        <p th:text="${eleve.age}">Sexe</p>
+    </div>
+</div>
+<div class="w3-cell-row">
+    <div class="w3-container w3-cell" style="width:20%">
+        <p>Classe de l'élève</p>
+    </div>
+    <div class="w3-cell-row">
+        <table class="w3-table-all w3-hoverable">
+            <tr>
+                <th>Id</th>
+                <th>Ecole</th>
+                <th>Niveau</th>
+                <th>Nom du professeur</th>
+            </tr>
+            <tr>
+                <td><span th:text="${eleve.classe.id}"></span></td>
+                <td><span th:text="${eleve.classe.ecole}"></span></td>
+                <td><span th:text="${eleve.classe.niveau}"></span></td>
+                <td><span th:text="${eleve.classe.nomProfesseur}"></span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
